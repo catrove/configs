@@ -1,0 +1,2 @@
+# configs
+sh install.sh
