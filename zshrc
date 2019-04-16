@@ -122,3 +122,4 @@ export FZF_DEFAULT_COMMAND='ag -g ""' # add --depth 3 to reduce time consumption
 export FZF_DEFAULT_OPTS='--height 40% -e'
 export FZF_CTRL_T_COMMAND='ag -g ""'
 eval `dircolors $HOME/dircolors-solarized/dircolors.256dark`
+alias R="rsync -a --exclude 'checkpoint*' --exclude 'results*' --exclude '*.log' --exclude 'log*'"
