@@ -7,26 +7,34 @@ else
 fi
 
 TEMP=.temp1114
+WORK=`pwd`
 
 mkdir $TEMP 
 
 cd $TEMP
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+HIGHTLIGHT=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+if [ ! -d $HIGHTLIGHT ]; then
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HIGHTLIGHT
+fi
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+SUGGESTION=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-sed -i "40,50s/.*ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/: $\{ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=blue\"\}/g" ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ ! -d $SUGGESTION ]; then
+	git clone https://github.com/zsh-users/zsh-autosuggestions $SUGGESTION
+fi
+
+sed -i "40,50s/.*ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/: $\{ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=magenta\"\}/g" ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-cp zshrc ~/.zshrc
+cp $WORK/zshrc ~/.zshrc
 
 
 git clone https://github.com/ggreer/the_silver_searcher
 
-sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
+#sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
 
 cd the_silver_searcher
 
@@ -68,8 +76,8 @@ cd ..
 cd
 git clone https://github.com/gpakosz/.tmux.git
 cd -
-cp tmux.conf ~/.tmux/.tmux.conf
-cp tmux.conf.local ~/
+cp $WORK/tmux.conf ~/.tmux/.tmux.conf
+cp $WORK/tmux.conf.local ~/.tmux.conf.local
 cd 
 ln -s -f .tmux/.tmux.conf
 
@@ -80,7 +88,7 @@ if [ -f ~/.vimrc ]; then
     mv ~/.vimrc ~/.vimrc.bk
 fi
 
-cp vimrc ~/.vimrc
+cp $WORK/vimrc ~/.vimrc
 
 cd ..
 rm -rf $TEMP
