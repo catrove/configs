@@ -3,7 +3,7 @@ cp ~/.bashrc ~/.bashrc.bk
 if [ -f ~/.zshrc ]; then
     cp ~/.zshrc ~/.zshrc.bk;
 fi
-if [ ! -d ~/.oh-my-zsh]; then
+if [ ! -d ~/.oh-my-zsh ]; then
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
