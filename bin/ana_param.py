@@ -3,9 +3,17 @@ import os
 import re
 
 flt = r'([0-9]\.[0-9][0-9]*)'
-pattern=re.compile('s{}_u{}_p{}_w{}_l{}.*EAO: {}'.format(*[flt for _ in range(6)]))
+pstr1 = 's{}_u{}_p{}_w{}_l{}.*EAO: {}'.format(*[flt for _ in range(6)])
+pstr2 = '^{}_{}_{}.*EAO: {}'.format(*[flt for _ in range(4)])
+
 log = os.sys.argv[1]
 f = open(log)
+flag = False
+if len(os.sys.argv) < 3:
+    pattern=re.compile(pstr1)
+else:
+    flag = True
+    pattern=re.compile(pstr2)
 
 window = {}
 lr = {}
@@ -19,7 +27,12 @@ for line in f.readlines():
     match = pattern.match(line)
     if not match :
         continue
-    s,u,p,w,l,eao = map(float,match.groups())
+    if not flag:
+        s,u,p,w,l,eao = map(float,match.groups())
+    else :
+        p,w,l,eao = map(float,match.groups())
+        s = 1.0
+        u = 0.0
     all_param.add((p,w,l,u,s))
 
 
