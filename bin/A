@@ -1,0 +1,3 @@
+echo $1
+ag "$1" * > temp
+python ~/bin/ana_param.py temp
