@@ -2,11 +2,12 @@ cp ~/.bashrc ~/.bashrc.bk
 
 if [ -f ~/.zshrc ]; then
     cp ~/.zshrc ~/.zshrc.bk;
-else
+fi
+if [ ! -d ~/.oh-my-zsh]; then
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
-TEMP=.temp1114
+TEMP=temp1114
 WORK=`pwd`
 
 mkdir $TEMP 
