@@ -1,0 +1,2 @@
+sed -i 's/\/mnt\/lustre\/chenguangqi\/vot_eval/\/mnt\/lustre\/chenlei\/share/g' $1
+sed -i 's/\/mnt\/lustre\/share\/chenguangqi/\/mnt\/lustre\/chenlei\/share/g' $1

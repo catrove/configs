@@ -1,0 +1,24 @@
+#!/mnt/lustre/chenlei/anaconda2/bin/python
+import os
+
+root = os.sys.argv[1]
+
+os.chdir(root+"/baseline/")
+
+v_list = os.listdir(".")
+
+failure_count = {}
+for v in v_list:
+    f = open("{}/{}_001.txt".format(v, v), 'r')
+    n = 0
+    for line in f.readlines():
+        if len(line.strip()) == 1:
+            n += 1
+    failure_count[v] = n//6
+
+print "Failures in %s:"%root
+failure_count = sorted(failure_count.iteritems(), key=lambda x:x[1], reverse=True)
+for k,v in failure_count:
+    if v>2:
+        print "{}: {}".format(k,v)
+
