@@ -1,5 +1,6 @@
 cp ~/.bashrc ~/.bashrc.bk
 
+
 if [ -f ~/.zshrc ]; then
     cp ~/.zshrc ~/.zshrc.bk;
 fi
@@ -13,6 +14,7 @@ WORK=`pwd`
 mkdir $TEMP 
 
 cd $TEMP
+git clone git clone https://github.com/rupa/z.git
 
 HIGHTLIGHT=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 if [ ! -d $HIGHTLIGHT ]; then
