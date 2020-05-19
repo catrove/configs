@@ -5,7 +5,8 @@ if [ -f ~/.zshrc ]; then
     cp ~/.zshrc ~/.zshrc.bk;
 fi
 if [ ! -d ~/.oh-my-zsh ]; then
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    #sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh zsh_install.sh
 fi
 
 TEMP=temp1114
@@ -13,8 +14,11 @@ WORK=`pwd`
 
 mkdir $TEMP 
 
-cd $TEMP
+cd $HOME
 git clone git clone https://github.com/rupa/z.git
+cd - 
+
+cd $TEMP
 
 HIGHTLIGHT=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 if [ ! -d $HIGHTLIGHT ]; then
@@ -45,7 +49,7 @@ cd the_silver_searcher
 
 cd ..
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 git clone https://github.com/altercation/vim-colors-solarized.git
 
@@ -62,19 +66,19 @@ cd -
 git clone https://github.com/seebi/dircolors-solarized.git  $HOME/dircolors-solarized
 
 
-git clone --recursive https://github.com/python-mode/python-mode.git
-cd python-mode
-cp -R * ~/.vim
-cd -
+#git clone --recursive https://github.com/python-mode/python-mode.git
+#cd python-mode
+#cp -R * ~/.vim
+#cd -
 
 # change vimrc line 219: `let g:pymode_python = 'python3'` if necessary
 
-git clone https://github.com/universal-ctags/ctags.git
-cd ctags
-./autogen.sh
-./configure --prefix=$HOME
-make && make install 
-cd ..
+#git clone https://github.com/universal-ctags/ctags.git
+#cd ctags
+#./autogen.sh
+#./configure --prefix=$HOME
+#make && make install 
+#cd ..
 
 cd
 git clone https://github.com/gpakosz/.tmux.git
@@ -85,13 +89,13 @@ cd
 ln -s -f .tmux/.tmux.conf
 
 cd -
-echo zsh >> $HOME/.bashrc
+echo bashrc >> $HOME/.bashrc
 
 if [ -f ~/.vimrc ]; then
     mv ~/.vimrc ~/.vimrc.bk
 fi
 
-cp $WORK/vimrc ~/.vimrc
+cp $WORK/vimrc_simple ~/.vimrc
 
 cd ..
 rm -rf $TEMP
