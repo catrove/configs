@@ -56,7 +56,7 @@ git clone https://github.com/altercation/vim-colors-solarized.git
 cd vim-colors-solarized/colors
 
 if [ ! -d ~/.vim/colors ]; then
-    mkdir ~/.vim/colors
+    mkdir -p ~/.vim/colors
 fi
 
 mv solarized.vim ~/.vim/colors/

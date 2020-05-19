@@ -11,7 +11,7 @@ set rtp+=~/.fzf
 let g:solarized_termcolors=16
 syntax on " 自动语法高亮
 set background=dark
-" colorscheme solarized
+colorscheme solarized
 set number " 显示行号
 
 set ruler " 打开状态栏标尺
