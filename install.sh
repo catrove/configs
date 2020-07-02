@@ -31,7 +31,7 @@ if [ ! -d $SUGGESTION ]; then
 	git clone https://github.com/zsh-users/zsh-autosuggestions $SUGGESTION
 fi
 
-sed -i "40,50s/.*ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/: $\{ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=magenta\"\}/g" ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+sed -i "36,37s/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=.*/ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=\"fg=magenta\"/g" ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install

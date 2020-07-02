@@ -94,3 +94,13 @@ endif
 set formatoptions+=mM
 
 set fencs=utf-8,gbk
+let g:ackprg = 'ag --vimgrep'
+vmap <C-c> "+y
+let mapleader = ","
+set ignorecase
+set incsearch
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+map <c-space> ?
